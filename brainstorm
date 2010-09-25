@@ -1,0 +1,59 @@
+Disclaimer:
+D8Coach is single or multi-player game intended for entertainment. We are not liable for you putting your foot in your mouth.
+
+Data!
+
+Tables:
+    Players
+        Email
+    Sessions
+        Login
+    Missions
+        Join table between targets and players
+
+    Targets
+        Unidentified target
+            UID on insert
+        Identified target
+            A "player"
+
+    Venues
+        Foursquare-type tracking of which types at which venues
+        Common interests, etc
+
+    Objectives / Plays / Moves / Suggestions
+        Linking Missions - Objectives
+            Successful/not
+        Actual table of Objectives
+
+        Graph for objectives
+        Huge honking matrix
+            Take all attributes
+                make them keys
+            value is simply a number
+            During a "can this work" search,
+                look up that value. What are the top hits?
+            SQL Select statement to produce a weighted score coming out of the database
+                Select by where all these things are in common, except this attribute can be anything
+                    Increment the data value on everything "similar to that attribute"
+                    Male / Female
+                    Hot / Not
+                Column: attribute of the target
+                Row: attribute of the target
+                Value: stored at the intersection
+        Generate other mappings
+            So that we can
+        Objective:
+            Ask her if she's interested in <SUBJECT>
+                Pre-populate SUBJECTS list based on what they have in common
+
+Objective UI:
+
+    Objective Thumbs down
+        Cluck cluck meter
+        Can't thumbs down too often
+        Cut off their voting rights before we mock them
+        "I think this is a good idea"
+        "C'mon, gotta go talk to her at some point"
+        "Shall I serve you with a side of mashed potatoes?"
+    
