@@ -1,0 +1,15 @@
+<resources>
+	 <color name="black">#000</color>
+	 <color name="white">#fff</color>
+	 <color name="grey">#eee</color>
+	 <color name="red">#f00</color>
+	 <color name="blue">#0f0</color>
+	 <color name="green">#00f</color>
+
+    <style name="DialogTheme" parent="android:Theme.Dialog">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+</resources>
