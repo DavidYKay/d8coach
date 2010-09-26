@@ -14,7 +14,7 @@
 		android:layout_width="0px"
 		android:layout_weight="60"
 		android:layout_height="fill_parent"/>
-	<Button
+	<ImageButton
 		android:id="@+id/completeButton"
 		android:paddingLeft="2px"
 		android:paddingRight="2px"
@@ -23,9 +23,10 @@
 		android:layout_width="0px"
 		android:layout_weight="20"
 		android:layout_height="fill_parent"
-		android:text="@string/complete"
+		android:src="@drawable/checkmark_button"
+		android:background="@color/transparent" 
 		/>
-	<Button
+	<ImageButton
 		android:id="@+id/vetoButton"
 		android:paddingLeft="2px"
 		android:paddingRight="2px"
@@ -34,6 +35,11 @@
 		android:layout_width="0px"
 		android:layout_weight="20"
 		android:layout_height="fill_parent"
-		android:text="@string/reject"
+		android:src="@drawable/forbidden_button"
+		android:background="@color/transparent" 
 		/>
+	<!--
+		android:text="@string/complete"
+		android:text="@string/reject"
+	 -->
 </LinearLayout>
