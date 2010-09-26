@@ -9,8 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.RatingBar;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ObjectivesActivity extends ListActivity {
@@ -41,52 +40,54 @@ public class ObjectivesActivity extends ListActivity {
 
 	class RatingAdapter extends ArrayAdapter<RowModel> {
 		RatingAdapter(ArrayList<RowModel> list) {
-			super(ObjectivesActivity.this, R.layout.row, list);
+			//super(ObjectivesActivity.this, R.layout.row, list);
+			super(ObjectivesActivity.this, R.layout.objective_row, list);
 		}
 
 		public View getView(int position, View convertView,
 				ViewGroup parent) {
-			View row=convertView;
+			View row = convertView;
 			ViewWrapper wrapper;
-			RatingBar rate;									
+			//RatingBar rate;									
 
-			if (row==null) {		
-				LayoutInflater inflater=getLayoutInflater();
+			if (row == null) {
+				LayoutInflater inflater = getLayoutInflater();
 
-				row=inflater.inflate(R.layout.row, parent, false);
-				wrapper=new ViewWrapper(row);
+				//row = inflater.inflate(R.layout.row, parent, false);
+				row = inflater.inflate(R.layout.objective_row, parent, false);
+				wrapper = new ViewWrapper(row);
 				row.setTag(wrapper);
-				rate=wrapper.getRatingBar();
+				//rate = wrapper.getRatingBar();
 
-				RatingBar.OnRatingBarChangeListener l=
-					new RatingBar.OnRatingBarChangeListener() {
-					public void onRatingChanged(RatingBar ratingBar,
-							float rating,
-							boolean fromTouch)	{
-						Integer myPosition=(Integer)ratingBar.getTag();
-						RowModel model=getModel(myPosition);
+				//RatingBar.OnRatingBarChangeListener l = 
+				//	new RatingBar.OnRatingBarChangeListener() {
+				//	public void onRatingChanged(RatingBar ratingBar,
+				//			float rating,
+				//			boolean fromTouch)	{
+				//		Integer myPosition = (Integer)ratingBar.getTag();
+				//		RowModel model = getModel(myPosition);
 
-						model.rating=rating;
+				//		model.rating = rating;
 
-						LinearLayout parent=(LinearLayout)ratingBar.getParent();
-						TextView label=(TextView)parent.findViewById(R.id.label);
+				//		LinearLayout parent = (LinearLayout)ratingBar.getParent();
+				//		TextView label = (TextView)parent.findViewById(R.id.label);
 
-						label.setText(model.toString());
-					}
-				};
+				//		label.setText(model.toString());
+				//	}
+				//};
 
-				rate.setOnRatingBarChangeListener(l);
+				//rate.setOnRatingBarChangeListener(l);
 			}
 			else {
-				wrapper=(ViewWrapper)row.getTag();
-				rate=wrapper.getRatingBar();
+				wrapper = (ViewWrapper)row.getTag();
+				//rate = wrapper.getRatingBar();
 			}
 
-			RowModel model=getModel(position);
+			RowModel model = getModel(position);
 
 			wrapper.getLabel().setText(model.toString());
-			rate.setTag(new Integer(position));
-			rate.setRating(model.rating);
+			//rate.setTag(new Integer(position));
+			//rate.setRating(model.rating);
 
 			return(row);
 		}
@@ -94,14 +95,14 @@ public class ObjectivesActivity extends ListActivity {
 
 	class RowModel {
 		String label;
-		float rating=2.0f;
+		float rating = 2.0f;
 
 		RowModel(String label) {
-			this.label=label;
+			this.label = label;
 		}
 
 		public String toString() {
-			if (rating>=3.0) {
+			if (rating >= 3.0) {
 				return(label.toUpperCase());
 			}
 
@@ -117,24 +118,42 @@ public class ObjectivesActivity extends ListActivity {
 	 */
 	class ViewWrapper {
 		View base;
-		RatingBar rate=null;
-		TextView label=null;
+		//RatingBar rate = null;
+		TextView label = null;
+		Button completeButton = null;
+		Button vetoButton = null;
 
 		ViewWrapper(View base) {
-			this.base=base;
+			this.base = base;
 		}
 
-		RatingBar getRatingBar() {
-			if (rate==null) {
-				rate=(RatingBar)base.findViewById(R.id.rate);
+		Button getCompleteButton() {
+			if (completeButton == null) {
+				completeButton = (Button)base.findViewById(R.id.completeButton);
 			}
 
-			return(rate);
+			return(completeButton);
+		}
+		
+		Button getVetoButton() {
+			if (vetoButton == null) {
+				vetoButton = (Button)base.findViewById(R.id.vetoButton);
+			}
+
+			return(vetoButton);
 		}
 
+		//RatingBar getRatingBar() {
+		//	if (rate == null) {
+		//		rate = (RatingBar)base.findViewById(R.id.rate);
+		//	}
+
+		//	return(rate);
+		//}
+
 		TextView getLabel() {
-			if (label==null) {
-				label=(TextView)base.findViewById(R.id.label);
+			if (label == null) {
+				label = (TextView)base.findViewById(R.id.label);
 			}
 
 			return(label);

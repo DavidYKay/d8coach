@@ -10,9 +10,9 @@
 		android:paddingLeft="2px"
 		android:paddingRight="2px"
 		android:paddingTop="2px"
-		android:textSize="40sp"
+		android:textSize="20sp"
 		android:layout_width="0px"
-		android:layout_weight="80"
+		android:layout_weight="60"
 		android:layout_height="fill_parent"/>
 	<Button
 		android:id="@+id/completeButton"
@@ -21,8 +21,10 @@
 		android:paddingTop="2px"
 		android:textSize="20sp"
 		android:layout_width="0px"
-		android:layout_weight="10"
-		android:layout_height="fill_parent"/>
+		android:layout_weight="20"
+		android:layout_height="fill_parent"
+		android:text="@string/complete"
+		/>
 	<Button
 		android:id="@+id/vetoButton"
 		android:paddingLeft="2px"
@@ -30,6 +32,8 @@
 		android:paddingTop="2px"
 		android:textSize="20sp"
 		android:layout_width="0px"
-		android:layout_weight="10"
-		android:layout_height="fill_parent"/>
+		android:layout_weight="20"
+		android:layout_height="fill_parent"
+		android:text="@string/reject"
+		/>
 </LinearLayout>

@@ -15,6 +15,9 @@
     <string name="targets">Targets</string>
     <string name="add_target">Add Target</string>
 
+    <string name="reject">Reject</string>
+    <string name="complete">Complete</string>
+
     <!-- FIELD NAMES -->
     <string name="password">Password</string>
     <string name="first_name">First Name</string>
