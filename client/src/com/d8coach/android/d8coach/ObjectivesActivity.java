@@ -24,7 +24,7 @@ public class ObjectivesActivity extends ListActivity {
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
-		ArrayList<RowModel> list=new ArrayList<RowModel>();
+		ArrayList<RowModel> list = new ArrayList<RowModel>();
 
 		for (String s : items) {
 			list.add(new RowModel(s));
