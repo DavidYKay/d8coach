@@ -128,7 +128,7 @@ public class ObjectivesActivity extends ListActivity {
         .setIcon(android.R.drawable.ic_dialog_alert)
         .setTitle(R.string.dismiss_objective)
         .setMessage(R.string.really_dismiss_objective)
-        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+        .setPositiveButton(R.string.keep_it, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 				Log.v("dismissObjective", objective.toString());
 				switch (which) {
@@ -141,7 +141,7 @@ public class ObjectivesActivity extends ListActivity {
 				}
             }
         })
-        .setNegativeButton(R.string.cancel, null)
+        .setNegativeButton(R.string.delete_it, null)
         .show();
 	}
 

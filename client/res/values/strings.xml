@@ -6,7 +6,7 @@
     <!-- Happy Text -->
     <string name="login_prompt">Please Login</string>
     <string name="dismiss_objective">Dismiss Objective?</string>
-    <string name="really_dismiss_objective">Are you sure you want to dismiss this objective?</string>
+    <string name="really_dismiss_objective">Do you think this objective is a terrible idea?</string>
     <string name="objective_complete">Objective Complete</string>
     <string name="objective_complete_prompt">How was the target\'s reaction?</string>
 
@@ -26,6 +26,9 @@
 
     <string name="reject">Reject</string>
     <string name="complete">Complete</string>
+    
+    <string name="delete_it">Delete It</string>
+    <string name="keep_it">Keep It</string>
 
     <!-- FIELD NAMES -->
     <string name="password">Password</string>
