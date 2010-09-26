@@ -2,7 +2,9 @@ package com.d8coach.android.d8coach;
 
 import java.util.ArrayList;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -77,20 +79,70 @@ public class ObjectivesActivity extends ListActivity {
 	/**
 	 * method to mark objective as unsuitable
 	 */
-	private void completeObjective(Objective objective) {
+	private void completeObjective(final Objective objective) {
 		Log.v("completeObjective", objective.toString());
 		//launch confirmation dialog
+		
+		//Resources res = getResources();
+		//String[] outcomes = res.getStringArray(R.array.objective_outcomes);
 
+		
+		//String[] array = {"Good", "Bad"};
+		final DialogInterface.OnClickListener listener = 
+		new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+				Log.v("dismissObjective", objective.toString());
+				switch (which) {
+					case DialogInterface.BUTTON_POSITIVE:
+						Log.v("dismissObjective", "Yes");
+						break;
+					case DialogInterface.BUTTON_NEGATIVE:
+						Log.v("dismissObjective", "No");
+						break;
+					case DialogInterface.BUTTON_NEUTRAL:
+						Log.v("dismissObjective", "Meh");
+						break;
+				}
+            }
+        };
+		new AlertDialog.Builder(this)
+        .setIcon(android.R.drawable.ic_dialog_alert)
+        .setTitle(R.string.objective_complete)
+        .setMessage(R.string.objective_complete_prompt)
+        .setPositiveButton(R.string.good, listener)
+        .setNegativeButton(R.string.bad, listener)
+        //.setItems(outcomes,
+        //.setItems(R.array.objective_outcomes,
+        //.setItems(array, listener)
+        .show();
 	}
 
 	/**
 	 * method to mark objective as unsuitable
 	 */
 	//private void dismissObjective(int position) {
-	private void dismissObjective(Objective objective) {
-		//objective = getmodel(position);
-		//launch confirmation dialog
+	private void dismissObjective(final Objective objective) {
 		Log.v("dismissObjective", objective.toString());
+		//launch confirmation dialog
+		new AlertDialog.Builder(this)
+        .setIcon(android.R.drawable.ic_dialog_alert)
+        .setTitle(R.string.dismiss_objective)
+        .setMessage(R.string.really_dismiss_objective)
+        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+				Log.v("dismissObjective", objective.toString());
+				switch (which) {
+					case DialogInterface.BUTTON_POSITIVE:
+						Log.v("dismissObjective", "Yes");
+						break;
+					case DialogInterface.BUTTON_NEGATIVE:
+						Log.v("dismissObjective", "No");
+						break;
+				}
+            }
+        })
+        .setNegativeButton(R.string.cancel, null)
+        .show();
 	}
 
 	/**

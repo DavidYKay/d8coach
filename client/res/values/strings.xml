@@ -5,8 +5,16 @@
 
     <!-- Happy Text -->
     <string name="login_prompt">Please Login</string>
+    <string name="dismiss_objective">Dismiss Objective?</string>
+    <string name="really_dismiss_objective">Are you sure you want to dismiss this objective?</string>
+    <string name="objective_complete">Objective Complete</string>
+    <string name="objective_complete_prompt">How was the target\'s reaction?</string>
 
     <!-- BUTTONS -->
+    <string name="poorly">Poorly</string>
+    <string name="well">Well</string>
+    <string name="good">Good</string>
+    <string name="bad">Bad</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="register">Register</string>
@@ -24,5 +32,6 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
+    
 
 </resources>
