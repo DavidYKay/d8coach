@@ -62,23 +62,6 @@ public class ObjectivesActivity extends ListActivity {
         	}
         });
 		
-		Resources res = getResources();
-		String[] lines = res.getStringArray(R.array.pickup_lines);
-
-		ArrayList<Objective> list = new ArrayList<Objective>();
-
-		//lines = Collections.shuffle(lines);
-		Functions.shuffleArray(lines);
-		//for (String s : lines) {
-		for (int i = 0; i < NUM_OBJECTIVES; i++) {
-			String s = lines[i];
-			list.add(new Objective(
-				s,
-				Objective.ActionType.PICK_UP_LINE
-			));
-		}
-
-		setListAdapter(new ObjectiveAdapter(list));
 	}
 	
 	@Override
@@ -91,13 +74,31 @@ public class ObjectivesActivity extends ListActivity {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		
+		initObjectives();
 	}
 	
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+	}
+
+	private void initObjectives() {
+		Resources res = getResources();
+		String[] lines = res.getStringArray(R.array.pickup_lines);
+		ArrayList<Objective> list = new ArrayList<Objective>();
+
+		Functions.shuffleArray(lines);
+		//for (String s : lines) {
+		for (int i = 0; i < NUM_OBJECTIVES; i++) {
+			String s = lines[i];
+			list.add(new Objective(
+				s,
+				Objective.ActionType.PICK_UP_LINE
+			));
+		}
+
+		setListAdapter(new ObjectiveAdapter(list));
 	}
 
 
