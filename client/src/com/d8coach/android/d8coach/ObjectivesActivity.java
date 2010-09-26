@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import android.app.ListActivity;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.d8coach.android.d8coach.model.Objective;
 
 public class ObjectivesActivity extends ListActivity {
 
@@ -23,24 +27,34 @@ public class ObjectivesActivity extends ListActivity {
 		Resources res = getResources();
 		String[] lines = res.getStringArray(R.array.pickup_lines);
 
-		ArrayList<RowModel> list = new ArrayList<RowModel>();
+		ArrayList<Objective> list = new ArrayList<Objective>();
 
 		//for (String s : lines) {
 		for (int i = 0; i < NUM_OBJECTIVES; i++) {
 			String s = lines[i];
-			list.add(new RowModel(s));
+			list.add(new Objective(
+				s,
+				Objective.ActionType.PICK_UP_LINE
+			));
 		}
 
-		setListAdapter(new RatingAdapter(list));
+		setListAdapter(new ObjectiveAdapter(list));
 	}
 
-	private RowModel getModel(int position) {
-		return(((RatingAdapter)getListAdapter()).getItem(position));
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		//Add quick actions here
+		Log.v("onListItemClick", Integer.toString(position));
+		
 	}
 
-	class RatingAdapter extends ArrayAdapter<RowModel> {
-		RatingAdapter(ArrayList<RowModel> list) {
-			//super(ObjectivesActivity.this, R.layout.row, list);
+	private Objective getModel(int position) {
+		return(((ObjectiveAdapter)getListAdapter()).getItem(position));
+	}
+
+	class ObjectiveAdapter extends ArrayAdapter<Objective> {
+		ObjectiveAdapter(ArrayList<Objective> list) {
 			super(ObjectivesActivity.this, R.layout.objective_row, list);
 		}
 
@@ -48,65 +62,25 @@ public class ObjectivesActivity extends ListActivity {
 				ViewGroup parent) {
 			View row = convertView;
 			ViewWrapper wrapper;
-			//RatingBar rate;									
 
 			if (row == null) {
 				LayoutInflater inflater = getLayoutInflater();
 
-				//row = inflater.inflate(R.layout.row, parent, false);
 				row = inflater.inflate(R.layout.objective_row, parent, false);
 				wrapper = new ViewWrapper(row);
 				row.setTag(wrapper);
-				//rate = wrapper.getRatingBar();
-
-				//RatingBar.OnRatingBarChangeListener l = 
-				//	new RatingBar.OnRatingBarChangeListener() {
-				//	public void onRatingChanged(RatingBar ratingBar,
-				//			float rating,
-				//			boolean fromTouch)	{
-				//		Integer myPosition = (Integer)ratingBar.getTag();
-				//		RowModel model = getModel(myPosition);
-
-				//		model.rating = rating;
-
-				//		LinearLayout parent = (LinearLayout)ratingBar.getParent();
-				//		TextView label = (TextView)parent.findViewById(R.id.label);
-
-				//		label.setText(model.toString());
-				//	}
-				//};
-
-				//rate.setOnRatingBarChangeListener(l);
 			}
 			else {
 				wrapper = (ViewWrapper)row.getTag();
-				//rate = wrapper.getRatingBar();
 			}
 
-			RowModel model = getModel(position);
+			Objective model = getModel(position);
 
 			wrapper.getLabel().setText(model.toString());
 			//rate.setTag(new Integer(position));
 			//rate.setRating(model.rating);
 
 			return(row);
-		}
-	}
-
-	class RowModel {
-		String label;
-		float rating = 2.0f;
-
-		RowModel(String label) {
-			this.label = label;
-		}
-
-		public String toString() {
-			if (rating >= 3.0) {
-				return(label.toUpperCase());
-			}
-
-			return(label);
 		}
 	}
 
@@ -118,7 +92,6 @@ public class ObjectivesActivity extends ListActivity {
 	 */
 	class ViewWrapper {
 		View base;
-		//RatingBar rate = null;
 		TextView label = null;
 		Button completeButton = null;
 		Button vetoButton = null;
@@ -142,14 +115,6 @@ public class ObjectivesActivity extends ListActivity {
 
 			return(vetoButton);
 		}
-
-		//RatingBar getRatingBar() {
-		//	if (rate == null) {
-		//		rate = (RatingBar)base.findViewById(R.id.rate);
-		//	}
-
-		//	return(rate);
-		//}
 
 		TextView getLabel() {
 			if (label == null) {
