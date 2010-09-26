@@ -38,15 +38,17 @@ public class ObjectivesActivity extends ListActivity {
 		final TargetFooter targetFooter = (TargetFooter) this.findViewById(R.id.target_footer);
 		
 		final TextView currentTargetLabel  = (TextView)targetFooter.findViewById(R.id.label);
-		//currentTargetLabel.setText("Current Target: Zane Doe");
 		currentTargetLabel.setText("Current Target: Jane Doe");
 
 		final LinearLayout currentTargetButton  = (LinearLayout)targetFooter.findViewById(R.id.currentTargetButton);
         currentTargetButton.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View v) {
 				Log.v("currentTargetButton", "click!");
-        		//Intent myIntent = new Intent(ObjectivesActivity.this, TargetListActivity.class);
-        		//ObjectivesActivity.this.startActivity(myIntent);
+				//Fire up the detail page
+				
+        		Intent myIntent = new Intent(ObjectivesActivity.this, TargetDetailActivity.class);
+				//Pass the relevant target ID
+        		ObjectivesActivity.this.startActivity(myIntent);
         	}        	
         });
 		
@@ -85,9 +87,7 @@ public class ObjectivesActivity extends ListActivity {
 		
 		//Resources res = getResources();
 		//String[] outcomes = res.getStringArray(R.array.objective_outcomes);
-
 		
-		//String[] array = {"Good", "Bad"};
 		final DialogInterface.OnClickListener listener = 
 		new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

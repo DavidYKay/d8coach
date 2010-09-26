@@ -16,6 +16,7 @@
 		<activity android:launchMode="singleTask" android:name=".ObjectivesActivity"></activity>
 		<activity android:launchMode="standard" android:name=".TargetListActivity"></activity>
 		<activity android:launchMode="standard" android:name=".TargetAddActivity"></activity>
+		<activity android:launchMode="standard" android:name=".TargetDetailActivity"></activity>
 
     </application>
     <uses-sdk android:minSdkVersion="4" />

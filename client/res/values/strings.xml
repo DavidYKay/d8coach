@@ -9,6 +9,7 @@
     <string name="really_dismiss_objective">Do you think this objective is a terrible idea?</string>
     <string name="objective_complete">Objective Complete</string>
     <string name="objective_complete_prompt">How was the target\'s reaction?</string>
+    <string name="dossier">Dossier</string>
 
     <!-- BUTTONS -->
     <string name="poorly">Poorly</string>
@@ -35,6 +36,14 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
-    
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="build">Build</string>
+    <string name="ethnicity">Ethnicity</string>
+    <string name="hair">Hair Color</string>
 
+    <!-- LOREM IPSUM -->
+    <string name="jane_doe">Jane Doe</string>
+    <string name="black">Black</string>
+    <string name="twenty_four">24</string>
 </resources>
