@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="80dp"
+	android:orientation="horizontal"
+	android:baselineAligned="true"
+	>
+	android:layout_height="fill_parent"
+	android:layout_height="80dp"
+	-->
+
+	<!--
+	<ImageButton
+		android:id="@+id/currentTargetButton"
+		android:paddingLeft="2dp"
+		android:paddingRight="2dp"
+		android:paddingTop="2dp"
+		android:layout_weight="15"
+		android:layout_height="fill_parent"
+		android:src="@drawable/user_female"
+		/>
+		
+		android:text="Current"
+	-->
+	<LinearLayout
+		android:id="@+id/currentTargetButton"
+		android:orientation="horizontal"
+		android:layout_width="0dp"
+		android:layout_height="fill_parent"
+		android:layout_weight="80"
+		style="@android:style/Widget.Button">
+
+		<ImageView 
+			android:paddingLeft="2dp"
+			android:paddingRight="2dp"
+			android:paddingTop="2dp"
+			android:layout_width="0dp" 
+			android:layout_weight="10"
+			android:layout_height="fill_parent"
+			android:src="@drawable/user_female"
+			/>
+		<TextView
+			android:id="@+id/label"
+			android:paddingLeft="2dp"
+			android:paddingRight="2dp"
+			android:paddingTop="2dp"
+			android:textSize="20sp"
+			android:layout_width="wrap_content" 
+			android:layout_height="fill_parent"
+			android:layout_weight="90"
+			android:text="@string/current_target"
+			android:textColor="@color/black"
+			android:lines="2"
+			/>
+	</LinearLayout>
+		
+	<ImageButton android:id="@+id/changeTargetButton"
+		android:paddingLeft="2dp"
+		android:paddingRight="2dp"
+		android:paddingTop="2dp"
+		android:layout_width="0dp" 
+		android:layout_weight="20"
+		android:layout_height="fill_parent"
+		android:src="@drawable/swap"
+		/>
+	<!--
+
+		android:src="@drawable/forbidden_button"
+		android:background="@color/transparent" 
+
+		android:textSize="20sp"
+		android:text="@string/complete"
+		android:text="@string/reject"
+
+</LinearLayout>
+	 -->
+</merge>

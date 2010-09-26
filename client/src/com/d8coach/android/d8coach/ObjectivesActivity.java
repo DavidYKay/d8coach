@@ -3,107 +3,131 @@ package com.d8coach.android.d8coach;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RatingBar;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.d8coach.android.d8coach.model.Objective;
+
 public class ObjectivesActivity extends ListActivity {
-	String[] items={"lorem", "ipsum", "dolor", "sit", "amet",
-			"consectetuer", "adipiscing", "elit", "morbi", "vel",
-			"ligula", "vitae", "arcu", "aliquet", "mollis",
-			"etiam", "vel", "erat", "placerat", "ante",
-			"porttitor", "sodales", "pellentesque", "augue",
-	"purus"};
+
+	public static final int NUM_OBJECTIVES = 6;
 
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
-		ArrayList<RowModel> list=new ArrayList<RowModel>();
+		setContentView(R.layout.objectives);
 
-		for (String s : items) {
-			list.add(new RowModel(s));
+		setTitle("D8Coach: Objectives");
+
+		final TargetFooter targetFooter = (TargetFooter) this.findViewById(R.id.target_footer);
+		
+		final TextView currentTargetLabel  = (TextView)targetFooter.findViewById(R.id.label);
+		//currentTargetLabel.setText("Current Target: Zane Doe");
+		currentTargetLabel.setText("Current Target: Jane Doe");
+
+		final LinearLayout currentTargetButton  = (LinearLayout)targetFooter.findViewById(R.id.currentTargetButton);
+        currentTargetButton.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View v) {
+				Log.v("currentTargetButton", "click!");
+        		//Intent myIntent = new Intent(ObjectivesActivity.this, TargetListActivity.class);
+        		//ObjectivesActivity.this.startActivity(myIntent);
+        	}        	
+        });
+		
+		final ImageButton changeTargetButton  = (ImageButton)targetFooter.findViewById(R.id.changeTargetButton);
+        changeTargetButton.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View v) {
+        		Intent myIntent = new Intent(ObjectivesActivity.this, TargetListActivity.class);
+				myIntent.putExtra(Constants.SELECT_MODE, true);
+        		ObjectivesActivity.this.startActivityForResult(myIntent, Constants.CHANGE_TARGET_CODE);
+        	}
+        });
+		
+		Resources res = getResources();
+		String[] lines = res.getStringArray(R.array.pickup_lines);
+
+		ArrayList<Objective> list = new ArrayList<Objective>();
+
+		//for (String s : lines) {
+		for (int i = 0; i < NUM_OBJECTIVES; i++) {
+			String s = lines[i];
+			list.add(new Objective(
+				s,
+				Objective.ActionType.PICK_UP_LINE
+			));
 		}
 
-		setListAdapter(new RatingAdapter(list));
+		setListAdapter(new ObjectiveAdapter(list));
 	}
 
-	private RowModel getModel(int position) {
-		return(((RatingAdapter)getListAdapter()).getItem(position));
+	/**
+	 * Mainly to handle responses from TargetListActivity
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == Constants.CHANGE_TARGET_CODE) {
+			Log.v("onActivityResult", "Change Target");
+			
+		} else {
+			Log.v("onActivityResult", "Result code: " + resultCode);
+			Log.v("onActivityResult", "Request code: " + requestCode);
+		}
 	}
 
-	class RatingAdapter extends ArrayAdapter<RowModel> {
-		RatingAdapter(ArrayList<RowModel> list) {
-			super(ObjectivesActivity.this, R.layout.row, list);
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		//Add quick actions here
+		Log.v("onListItemClick", Integer.toString(position));
+		
+	}
+
+	private Objective getModel(int position) {
+		return(((ObjectiveAdapter)getListAdapter()).getItem(position));
+	}
+
+	class ObjectiveAdapter extends ArrayAdapter<Objective> {
+		ObjectiveAdapter(ArrayList<Objective> list) {
+			super(ObjectivesActivity.this, R.layout.objective_row, list);
 		}
 
 		public View getView(int position, View convertView,
 				ViewGroup parent) {
-			View row=convertView;
+			View row = convertView;
 			ViewWrapper wrapper;
-			RatingBar rate;									
 
-			if (row==null) {		
-				LayoutInflater inflater=getLayoutInflater();
+			if (row == null) {
+				LayoutInflater inflater = getLayoutInflater();
 
-				row=inflater.inflate(R.layout.row, parent, false);
-				wrapper=new ViewWrapper(row);
+				row = inflater.inflate(R.layout.objective_row, parent, false);
+				wrapper = new ViewWrapper(row);
 				row.setTag(wrapper);
-				rate=wrapper.getRatingBar();
-
-				RatingBar.OnRatingBarChangeListener l=
-					new RatingBar.OnRatingBarChangeListener() {
-					public void onRatingChanged(RatingBar ratingBar,
-							float rating,
-							boolean fromTouch)	{
-						Integer myPosition=(Integer)ratingBar.getTag();
-						RowModel model=getModel(myPosition);
-
-						model.rating=rating;
-
-						LinearLayout parent=(LinearLayout)ratingBar.getParent();
-						TextView label=(TextView)parent.findViewById(R.id.label);
-
-						label.setText(model.toString());
-					}
-				};
-
-				rate.setOnRatingBarChangeListener(l);
 			}
 			else {
-				wrapper=(ViewWrapper)row.getTag();
-				rate=wrapper.getRatingBar();
+				wrapper = (ViewWrapper)row.getTag();
 			}
 
-			RowModel model=getModel(position);
+			Objective model = getModel(position);
 
 			wrapper.getLabel().setText(model.toString());
-			rate.setTag(new Integer(position));
-			rate.setRating(model.rating);
+			//rate.setTag(new Integer(position));
+			//rate.setRating(model.rating);
 
 			return(row);
-		}
-	}
-
-	class RowModel {
-		String label;
-		float rating=2.0f;
-
-		RowModel(String label) {
-			this.label=label;
-		}
-
-		public String toString() {
-			if (rating>=3.0) {
-				return(label.toUpperCase());
-			}
-
-			return(label);
 		}
 	}
 
@@ -115,24 +139,33 @@ public class ObjectivesActivity extends ListActivity {
 	 */
 	class ViewWrapper {
 		View base;
-		RatingBar rate=null;
-		TextView label=null;
+		TextView label = null;
+		Button completeButton = null;
+		Button vetoButton = null;
 
 		ViewWrapper(View base) {
-			this.base=base;
+			this.base = base;
 		}
 
-		RatingBar getRatingBar() {
-			if (rate==null) {
-				rate=(RatingBar)base.findViewById(R.id.rate);
+		Button getCompleteButton() {
+			if (completeButton == null) {
+				completeButton = (Button)base.findViewById(R.id.completeButton);
 			}
 
-			return(rate);
+			return(completeButton);
+		}
+		
+		Button getVetoButton() {
+			if (vetoButton == null) {
+				vetoButton = (Button)base.findViewById(R.id.vetoButton);
+			}
+
+			return(vetoButton);
 		}
 
 		TextView getLabel() {
-			if (label==null) {
-				label=(TextView)base.findViewById(R.id.label);
+			if (label == null) {
+				label = (TextView)base.findViewById(R.id.label);
 			}
 
 			return(label);

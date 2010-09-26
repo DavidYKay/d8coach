@@ -23,6 +23,7 @@ public class RegisterActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		setTitle("D8Coach: Register");
         setContentView(R.layout.register);
 
         mEmailText = (EditText)this.findViewById(R.id.RegisterActivity_email);

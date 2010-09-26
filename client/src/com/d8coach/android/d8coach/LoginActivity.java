@@ -24,6 +24,8 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+		setTitle("D8Coach: Login");
+
         mEmailText    = (EditText)this.findViewById(R.id.LoginActivity_email);
         mPasswordText = (EditText)this.findViewById(R.id.LoginActivity_password);
 

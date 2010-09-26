@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array
+		name="female_names">
+		<item>Mary</item>
+		<item>Patricia</item>
+		<item>Linda</item>
+		<item>Barbara</item>
+		<item>Elizabeth</item>
+		<item>Jennifer</item>
+		<item>Maria</item>
+		<item>Susan</item>
+		<item>Margaret</item>
+		<item>Dorothy</item>
+		<item>Lisa</item>
+		<item>Nancy</item>
+		<item>Karen</item>
+		<item>Betty</item>
+		<item>Helen</item>
+		<item>Sandra</item>
+		<item>Donna</item>
+		<item>Carol</item>
+		<item>Ruth</item>
+		<item>Sharon</item>
+		<item>Michelle</item>
+	</string-array>
+</resources>

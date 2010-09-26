@@ -41,7 +41,8 @@ public class Target {
 
 
 	public String toString() {
-		return "Fwhwgds";
+		//return "Fwhwgds";
+		return name;
 	}
 
 }

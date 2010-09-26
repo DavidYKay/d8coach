@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:paddingLeft="8dp"
+	android:paddingRight="8dp">
+
+	<ListView android:id="@id/android:list"
+		android:layout_width="fill_parent"
+		android:layout_height="0px"
+		android:layout_weight="85"
+		android:drawSelectorOnTop="false"/>
+
+	<TextView android:id="@id/android:empty"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:text="No data"/>
+
+	<com.d8coach.android.d8coach.TargetFooter android:id="@+id/target_footer"
+		android:layout_width="fill_parent" 
+		android:layout_height="0px"
+		android:layout_weight="15"
+		/>
+
+<!--
+	<Button android:id="@+id/targets_button"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="85"
+		android:text="@string/current_target"/>
+	/>
+
+
+		android:background="#FF0000"
+		android:background="#00FF00"
+		android:background="#00FF00"
+-->
+
+</LinearLayout>

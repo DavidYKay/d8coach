@@ -50,12 +50,12 @@ public class MainActivity extends Activity {
         	}        	
         });
 		
-        final Button targetsButton  = (Button)this.findViewById(R.id.MainActivity_Targets);
-        targetsButton.setOnClickListener(new View.OnClickListener() {
-        	public void onClick(View v) {
-        		Intent myIntent = new Intent(MainActivity.this, TargetListActivity.class);
-        		MainActivity.this.startActivity(myIntent);
-        	}        	
-        });
+        //final Button targetsButton  = (Button)this.findViewById(R.id.MainActivity_Targets);
+        //targetsButton.setOnClickListener(new View.OnClickListener() {
+        //	public void onClick(View v) {
+        //		Intent myIntent = new Intent(MainActivity.this, TargetListActivity.class);
+        //		MainActivity.this.startActivity(myIntent);
+        //	}        	
+        //});
     }
 }
