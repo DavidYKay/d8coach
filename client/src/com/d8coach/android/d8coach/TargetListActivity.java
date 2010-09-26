@@ -7,6 +7,9 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -31,6 +34,39 @@ public class TargetListActivity extends ListActivity {
 		}
 
 		setListAdapter(new TargetAdapter(list));
+	}
+
+	/*******************************
+	 * Menu Methods
+	 ******************************/
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.target_menu, menu);
+		return true;
+	}
+
+	//public boolean onPrepareOptionsMenu(Menu menu) {
+	//    return true;
+    //}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		//int currentTab = mTabHost.getCurrentTab();
+		int itemId = item.getItemId();
+		Log.v("onOptionsItemSelected", Integer.toString(itemId));
+		switch (itemId) {
+			case 0:
+				return true;
+			case 1:
+				//((IciView) mTabHost.getCurrentView()).onOptionsItemSelected(item);
+				break;
+			case 2:
+				//((IciView) mTabHost.getCurrentView()).onOptionsItemSelected(item);
+					break;
+        }
+		return true;
 	}
 	
 	private Target getModel(int position) {

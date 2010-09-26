@@ -13,6 +13,7 @@
     <string name="login">Login</string>
     <string name="objectives">Objectives</string>
     <string name="targets">Targets</string>
+    <string name="add_target">Add Target</string>
 
     <!-- FIELD NAMES -->
     <string name="password">Password</string>
