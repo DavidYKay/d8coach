@@ -14,8 +14,9 @@
 
 	<TextView android:id="@id/android:empty"
 		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:text="No data"/>
+		android:layout_height="0px"
+		android:layout_weight="85"
+		android:text="@string/no_objectives"/>
 
 	<com.d8coach.android.d8coach.view.TargetFooter android:id="@+id/target_footer"
 		android:layout_width="fill_parent" 

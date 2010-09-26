@@ -81,7 +81,9 @@ public class ObjectivesActivity extends ListActivity {
 	/**
 	 * method to mark objective as unsuitable
 	 */
-	private void completeObjective(final Objective objective) {
+	//private void completeObjective(final Objective objective) {
+	private void completeObjective(final int position) {
+		final Objective objective = getModel(position);
 		Log.v("completeObjective", objective.toString());
 		//launch confirmation dialog
 		
@@ -95,9 +97,11 @@ public class ObjectivesActivity extends ListActivity {
 				switch (which) {
 					case DialogInterface.BUTTON_POSITIVE:
 						Log.v("dismissObjective", "Yes");
+						removeModel(objective);
 						break;
 					case DialogInterface.BUTTON_NEGATIVE:
 						Log.v("dismissObjective", "No");
+						removeModel(objective);
 						break;
 					case DialogInterface.BUTTON_NEUTRAL:
 						Log.v("dismissObjective", "Meh");
@@ -120,20 +124,22 @@ public class ObjectivesActivity extends ListActivity {
 	/**
 	 * method to mark objective as unsuitable
 	 */
-	//private void dismissObjective(int position) {
-	private void dismissObjective(final Objective objective) {
+	private void dismissObjective(int position) {
+	//private void dismissObjective(final Objective objective) {
+		final Objective objective = getModel(position);
 		Log.v("dismissObjective", objective.toString());
 		//launch confirmation dialog
 		new AlertDialog.Builder(this)
         .setIcon(android.R.drawable.ic_dialog_alert)
         .setTitle(R.string.dismiss_objective)
         .setMessage(R.string.really_dismiss_objective)
-        .setPositiveButton(R.string.keep_it, new DialogInterface.OnClickListener() {
+        .setPositiveButton(R.string.delete_it, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 				Log.v("dismissObjective", objective.toString());
 				switch (which) {
 					case DialogInterface.BUTTON_POSITIVE:
 						Log.v("dismissObjective", "Yes");
+						removeModel(objective);
 						break;
 					case DialogInterface.BUTTON_NEGATIVE:
 						Log.v("dismissObjective", "No");
@@ -141,7 +147,7 @@ public class ObjectivesActivity extends ListActivity {
 				}
             }
         })
-        .setNegativeButton(R.string.delete_it, null)
+        .setNegativeButton(R.string.keep_it, null)
         .show();
 	}
 
@@ -167,6 +173,10 @@ public class ObjectivesActivity extends ListActivity {
 		//Add quick actions here
 		Log.v("onListItemClick", Integer.toString(position));
 		
+	}
+
+	private void removeModel(Objective objective) {
+		((ObjectiveAdapter) getListAdapter()).remove(objective);
 	}
 
 	private Objective getModel(int position) {
@@ -201,15 +211,16 @@ public class ObjectivesActivity extends ListActivity {
 			final int fixedPos = position;
 			wrapper.getCompleteButton().setOnClickListener( new OnClickListener() {
 				public void onClick(View v) {
-					Objective objective = getModel(fixedPos);
-					completeObjective(objective);
+					//Objective objective = getModel(fixedPos);
+					//completeObjective(objective);
+					completeObjective(fixedPos);
 				}
 			});
 			
 			wrapper.getVetoButton().setOnClickListener( new OnClickListener() {
 				public void onClick(View v) {
-					Objective objective = getModel(fixedPos);
-					dismissObjective(objective);
+					//dismissObjective(objective);
+					dismissObjective(fixedPos);
 				}
 			});
 			

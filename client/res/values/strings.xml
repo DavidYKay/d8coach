@@ -10,6 +10,7 @@
     <string name="objective_complete">Objective Complete</string>
     <string name="objective_complete_prompt">How was the target\'s reaction?</string>
     <string name="dossier">Dossier</string>
+    <string name="no_objectives">No Objectives</string>
 
     <!-- BUTTONS -->
     <string name="poorly">Poorly</string>

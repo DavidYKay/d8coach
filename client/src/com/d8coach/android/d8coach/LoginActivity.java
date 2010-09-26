@@ -80,7 +80,6 @@ public class LoginActivity extends Activity {
     }
     
     private void completeLogin(ProgressDialog dialog) {
-
         dialog.dismiss();
         //dismiss activity
         finish();
