@@ -22,15 +22,15 @@ public class TargetAddActivity extends Activity {
         	}        	
         });
 	}
-    
+
     private void addTarget() {
     	int resultCode = Activity.RESULT_OK;
     	Intent intent = new Intent();
 		//Add data to intent bundle
 		
 
-    	//setResult(resultCode, intent);
-    	setResult(resultCode);
+    	setResult(resultCode, intent);
+    	//setResult(resultCode);
 
 		Log.v("addTarget", "resultCode: " + resultCode);
     	finish();

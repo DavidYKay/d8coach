@@ -2,6 +2,7 @@ package com.d8coach.android.d8coach;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.d8coach.android.d8coach.model.Target;
@@ -22,12 +24,17 @@ import com.d8coach.android.d8coach.model.Target;
 public class TargetListActivity extends ListActivity {
 
 	public static final int NUM_TARGETS = 6;
+	
+	private boolean selectMode;
 
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
 		setTitle("D8Coach: Targets");
+
+		Intent intent = getIntent();
+		selectMode = intent.getBooleanExtra(Constants.SELECT_MODE, false);
 
 		Resources res = getResources();
 		String[] names = res.getStringArray(R.array.female_names);
@@ -43,6 +50,16 @@ public class TargetListActivity extends ListActivity {
 		setListAdapter(new TargetAdapter(list));
 	}
 	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		if (selectMode) {
+			changeTarget(position);
+		} else {
+
+		}
+	}
+
 	/**
 	 * Mainly to handle responses from TargetAddActivity
 	 */
@@ -51,12 +68,26 @@ public class TargetListActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == Constants.ADD_TARGET_CODE) {
-			Log.v("onActivityResult", "IT WORKED");
+			Log.v("onActivityResult", "Add Target");
+			
 		} else {
 			Log.v("onActivityResult", "Result code: " + resultCode);
 			Log.v("onActivityResult", "Request code: " + requestCode);
 		}
 	}
+
+    private void changeTarget(int position) {
+    	int resultCode = Activity.RESULT_OK;
+    	Intent intent = new Intent();
+		//Add data to intent bundle
+
+    	setResult(resultCode, intent);
+    	//setResult(resultCode);
+
+		Log.v("changeTarget", "position: " + position);
+    	finish();
+	}
+    
 
 	/*******************************
 	 * Menu Methods

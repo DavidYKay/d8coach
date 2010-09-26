@@ -3,6 +3,7 @@ package com.d8coach.android.d8coach;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,6 +30,30 @@ public class ObjectivesActivity extends ListActivity {
 		setContentView(R.layout.objectives);
 
 		setTitle("D8Coach: Objectives");
+
+		final TargetFooter targetFooter = (TargetFooter) this.findViewById(R.id.target_footer);
+		
+		final TextView currentTargetLabel  = (TextView)targetFooter.findViewById(R.id.label);
+		//currentTargetLabel.setText("Current Target: Zane Doe");
+		currentTargetLabel.setText("Current Target: Jane Doe");
+
+		final LinearLayout currentTargetButton  = (LinearLayout)targetFooter.findViewById(R.id.currentTargetButton);
+        currentTargetButton.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View v) {
+				Log.v("currentTargetButton", "click!");
+        		//Intent myIntent = new Intent(ObjectivesActivity.this, TargetListActivity.class);
+        		//ObjectivesActivity.this.startActivity(myIntent);
+        	}        	
+        });
+		
+		final ImageButton changeTargetButton  = (ImageButton)targetFooter.findViewById(R.id.changeTargetButton);
+        changeTargetButton.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View v) {
+        		Intent myIntent = new Intent(ObjectivesActivity.this, TargetListActivity.class);
+				myIntent.putExtra(Constants.SELECT_MODE, true);
+        		ObjectivesActivity.this.startActivityForResult(myIntent, Constants.CHANGE_TARGET_CODE);
+        	}
+        });
 		
 		Resources res = getResources();
 		String[] lines = res.getStringArray(R.array.pickup_lines);
@@ -43,6 +70,22 @@ public class ObjectivesActivity extends ListActivity {
 		}
 
 		setListAdapter(new ObjectiveAdapter(list));
+	}
+
+	/**
+	 * Mainly to handle responses from TargetListActivity
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == Constants.CHANGE_TARGET_CODE) {
+			Log.v("onActivityResult", "Change Target");
+			
+		} else {
+			Log.v("onActivityResult", "Result code: " + resultCode);
+			Log.v("onActivityResult", "Request code: " + requestCode);
+		}
 	}
 
 	@Override
