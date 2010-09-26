@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.d8coach.android.d8coach.model.Objective;
 import com.d8coach.android.d8coach.util.Constants;
+import com.d8coach.android.d8coach.util.Functions;
 import com.d8coach.android.d8coach.view.TargetFooter;
 
 public class ObjectivesActivity extends ListActivity {
@@ -66,6 +67,8 @@ public class ObjectivesActivity extends ListActivity {
 
 		ArrayList<Objective> list = new ArrayList<Objective>();
 
+		//lines = Collections.shuffle(lines);
+		Functions.shuffleArray(lines);
 		//for (String s : lines) {
 		for (int i = 0; i < NUM_OBJECTIVES; i++) {
 			String s = lines[i];
@@ -78,6 +81,26 @@ public class ObjectivesActivity extends ListActivity {
 		setListAdapter(new ObjectiveAdapter(list));
 	}
 	
+	@Override
+	protected void onRestart() {
+		// TODO Auto-generated method stub
+		super.onRestart();
+	}
+
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
+
+
 	/**
 	 * method to mark objective as unsuitable
 	 */
