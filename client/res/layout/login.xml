@@ -57,7 +57,7 @@
                     android:layout_width="0px" 
                     android:layout_weight="50" 
                     android:layout_height="wrap_content" 
-                    android:text="@string/ok"
+                    android:text="@string/login"
                     />
             </LinearLayout>
         </RelativeLayout>

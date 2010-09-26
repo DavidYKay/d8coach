@@ -4,7 +4,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-
     <TextView
         android:layout_above="@+id/RegisterActivity_linearLayout"
         android:layout_centerHorizontal="true"
@@ -56,13 +55,15 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
-                >
+				>
+				<!--
                 <Button  
                     android:layout_width="0px" 
                     android:layout_weight="50" 
                     android:layout_height="wrap_content" 
                     android:text="@string/cancel"
-                    />
+					/>
+				-->
                 <Button  
                     android:id="@+id/RegisterActivity_okButton"
                     android:layout_width="0px" 

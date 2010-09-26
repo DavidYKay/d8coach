@@ -11,6 +11,8 @@
     <string name="cancel">Cancel</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="objectives">Objectives</string>
+    <string name="targets">Targets</string>
 
     <!-- FIELD NAMES -->
     <string name="password">Password</string>
