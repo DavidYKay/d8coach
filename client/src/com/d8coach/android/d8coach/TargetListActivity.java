@@ -1,12 +1,15 @@
 package com.d8coach.android.d8coach;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -89,10 +92,44 @@ public class TargetListActivity extends ListActivity {
 		);
 
     	setResult(resultCode, intent);
+		
+        //show indicator for a bit?
+        final ProgressDialog dialog = ProgressDialog.show(
+            this,
+            "Changing Targets",
+            "Please wait...",
+            true,
+            true
+        );
+
+		final long delay = 2000;
+		//Random rand = new Random();
+		//long offset = rand.nextLong();
+		//if (offset > delay) {
+		//	offset &= delay; 
+		//}
+		//long timerSec = delay - offset;
+		
+		long timerSec = (long)(delay * Math.random());
+
+		new CountDownTimer(timerSec, timerSec) {
+            public void onTick(long millisUntilFinished) {
+                //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+            public void onFinish() {
+                //mTextField.setText("done!");
+				completeChangeTarget(dialog);
+            }
+        }.start();
 
 		Log.v("changeTarget", "position: " + position);
-    	finish();
 	}
+
+    private void completeChangeTarget(ProgressDialog dialog) {
+        dialog.dismiss();
+        //dismiss activity
+        finish();
+    }
     
 
 	/*******************************

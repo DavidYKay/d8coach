@@ -13,7 +13,8 @@
 		android:textSize="14sp"
 		android:layout_width="0px"
 		android:layout_weight="70"
-		android:layout_height="fill_parent"/>
+		android:layout_height="fill_parent"
+		/>
 	<ImageButton
 		android:id="@+id/completeButton"
 		android:paddingLeft="2px"
@@ -37,6 +38,9 @@
 		android:background="@color/transparent" 
 		/>
 	<!--
+		android:ellipsize="marquee"
+		android:marqueeRepeatLimit="3"
+
 		android:textSize="20sp"
 		android:text="@string/complete"
 		android:text="@string/reject"
