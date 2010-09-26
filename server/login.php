@@ -4,7 +4,9 @@ include 'lib/session.php';
 if ($_POST['user'] ) {
 	if (check_pw($_POST['user'], $_POST['pw'] ) ) {
 		$uid = get_uid($_POST['user']) ;
-		create_new_session($uid) ;
+		$sesshash = create_new_session($uid) ;
+		setcookie('uid', $uid);
+		setcookie('sesshash', $sesshash);
 	} else { 
 		/* Bad password page */
 		print 'bad password' ;

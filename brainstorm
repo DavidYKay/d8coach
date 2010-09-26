@@ -16,6 +16,13 @@ Tables:
             UID on insert
         Identified target
             A "player"
+	Attributes:
+	    Age (approx)
+	    Weight (approx)
+	    Hair (Blonde, Redhead, Black, Brown)
+	    Name
+
+
 
     Venues
         Foursquare-type tracking of which types at which venues
