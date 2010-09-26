@@ -12,6 +12,7 @@
             </intent-filter>
         </activity>
 		<activity android:launchMode="singleTask" android:name=".RegisterActivity"></activity>
+		<activity android:launchMode="singleTask" android:name=".LoginActivity"></activity>
 
     </application>
     <uses-sdk android:minSdkVersion="4" />

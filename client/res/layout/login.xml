@@ -4,29 +4,33 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
+
+    <TextView
+        android:layout_above="@+id/LoginActivity_linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_prompt"
+    />
     <LinearLayout 
+        android:id="@+id/LoginActivity_linearLayout"
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         >
         <EditText  
-            android:id="@+id/RegisterActivity_email"
+            android:id="@+id/LoginActivity_email"
             android:layout_width="fill_parent" 
             android:layout_height="wrap_content" 
             android:hint="@string/email"
             />
         <EditText  
-            android:id="@+id/RegisterActivity_first_name"
+            android:id="@+id/LoginActivity_password"
+            android:password="true"
             android:layout_width="fill_parent" 
             android:layout_height="wrap_content" 
-            android:hint="@string/first_name"
-            />
-        <EditText  
-            android:id="@+id/RegisterActivity_last_name"
-            android:layout_width="fill_parent" 
-            android:layout_height="wrap_content" 
-            android:hint="@string/last_name"
+            android:hint="@string/password"
             />
         <RelativeLayout 
             android:orientation="horizontal"
@@ -41,13 +45,14 @@
                 android:padding="20dp"
                 >
                 <Button  
+                    android:id="@+id/LoginActivity_registerButton"
                     android:layout_width="0px" 
                     android:layout_weight="50" 
                     android:layout_height="wrap_content" 
-                    android:text="@string/cancel"
+                    android:text="@string/register"
                     />
                 <Button  
-                    android:id="@+id/RegisterActivity_okButton"
+                    android:id="@+id/LoginActivity_okButton"
                     android:layout_width="0px" 
                     android:layout_weight="50" 
                     android:layout_height="wrap_content" 

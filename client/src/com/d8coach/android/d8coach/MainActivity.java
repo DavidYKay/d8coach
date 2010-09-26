@@ -13,11 +13,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-
-		final Button settingsButton  = (Button)this.findViewById(R.id.MainActivity_Register);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
+		final Button registerButton  = (Button)this.findViewById(R.id.MainActivity_Register);
+        registerButton.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View v) {
-        		//Intent myIntent = new Intent(CardTactics.this, SkirmishActivity.class);
         		Intent myIntent = new Intent(MainActivity.this, RegisterActivity.class);
         		//Bundle bundle = new Bundle();
         		//Pass the relevant mode to GameClient
@@ -33,6 +31,14 @@ public class MainActivity extends Activity {
         		myIntent.putExtras(bundle);
         		mainmenu_this.startActivity(myIntent);
         		*/
+        	}        	
+        });
+
+		final Button loginButton  = (Button)this.findViewById(R.id.MainActivity_Login);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View v) {
+        		Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
+        		MainActivity.this.startActivity(myIntent);
         	}        	
         });
     }

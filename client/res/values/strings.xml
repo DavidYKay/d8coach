@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">D8Coach</string>
     <string name="hello">Hello World, MainActivity!</string>
+
+    <!-- Happy Text -->
+    <string name="login_prompt">Please Login</string>
+
+    <!-- BUTTONS -->
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="register">Register</string>
-    <string name="app_name">D8Coach</string>
-    
+    <string name="login">Login</string>
+
+    <!-- FIELD NAMES -->
+    <string name="password">Password</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
+
 </resources>

@@ -23,7 +23,7 @@ public class RegisterActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registration);
+        setContentView(R.layout.register);
 
         mEmailText = (EditText)this.findViewById(R.id.RegisterActivity_email);
         mFirstNameText = (EditText)this.findViewById(R.id.RegisterActivity_first_name);
