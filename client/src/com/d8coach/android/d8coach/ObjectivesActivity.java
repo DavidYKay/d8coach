@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 public class ObjectivesActivity extends ListActivity {
 
+	public static final int NUM_OBJECTIVES = 6;
+
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
@@ -24,7 +26,9 @@ public class ObjectivesActivity extends ListActivity {
 
 		ArrayList<RowModel> list = new ArrayList<RowModel>();
 
-		for (String s : lines) {
+		//for (String s : lines) {
+		for (int i = 0; i < NUM_OBJECTIVES; i++) {
+			String s = lines[i];
 			list.add(new RowModel(s));
 		}
 

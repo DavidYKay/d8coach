@@ -21,6 +21,8 @@ import com.d8coach.android.d8coach.model.Target;
 
 public class TargetListActivity extends ListActivity {
 
+	public static final int NUM_TARGETS = 6;
+
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
@@ -30,7 +32,9 @@ public class TargetListActivity extends ListActivity {
 
 		ArrayList<Target> list = new ArrayList<Target>();
 
-		for (String s : names) {
+		//for (String s : names) {
+		for (int i = 0; i < NUM_TARGETS; i++) {
+			String s = names[i];
 			list.add(new Target(s));
 		}
 
