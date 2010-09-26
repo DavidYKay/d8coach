@@ -18,6 +18,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.d8coach.android.d8coach.model.Objective;
+import com.d8coach.android.d8coach.util.Constants;
+import com.d8coach.android.d8coach.view.TargetFooter;
 
 public class ObjectivesActivity extends ListActivity {
 

@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.d8coach.android.d8coach.model.Target;
+import com.d8coach.android.d8coach.util.Constants;
 
 public class TargetListActivity extends ListActivity {
 
@@ -80,9 +81,14 @@ public class TargetListActivity extends ListActivity {
     	int resultCode = Activity.RESULT_OK;
     	Intent intent = new Intent();
 		//Add data to intent bundle
+		Target target = getModel(position);
+
+		intent.putExtra(
+			Constants.TargetName,
+			target.getName()
+		);
 
     	setResult(resultCode, intent);
-    	//setResult(resultCode);
 
 		Log.v("changeTarget", "position: " + position);
     	finish();

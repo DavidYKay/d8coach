@@ -1,10 +1,11 @@
-package com.d8coach.android.d8coach;
+package com.d8coach.android.d8coach.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
+
+import com.d8coach.android.d8coach.R;
 
 public class TargetFooter extends LinearLayout {
 
