@@ -2,9 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+    android:layout_height="fill_parent"
 	>
 	<TextView
+android:textSize="36sp"
+android:textStyle="bold"
 		android:layout_above="@+id/linearLayout"
 		android:layout_centerHorizontal="true"
 		android:layout_width="wrap_content"
@@ -20,12 +22,14 @@
 		android:stretchColumns="0"
 		>
 		<TableRow>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:text="@string/name"
 				/>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:id="@+id/name"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
@@ -33,12 +37,14 @@
 				/>
 		</TableRow>
 		<TableRow>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:text="@string/hair"
 				/>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:id="@+id/hair"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
@@ -46,12 +52,14 @@
 				/>
 		</TableRow>
 		<TableRow>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:text="@string/age"
 				/>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:id="@+id/age"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
@@ -59,29 +67,33 @@
 				/>
 		</TableRow>
 		<TableRow>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:text="@string/build"
 				/>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:id="@+id/build"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
-				android:text="@string/twenty_four"
+				android:text="@string/slender"
 				/>
 		</TableRow>
 		<TableRow>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
 				android:text="@string/ethnicity"
 				/>
-			<TextView  
+			<TextView
+android:textSize="24sp"  
 				android:id="@+id/ethnicity"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content" 
-				android:text="@string/black"
+				android:text="@string/white"
 				/>
 		</TableRow>
 		<RelativeLayout 

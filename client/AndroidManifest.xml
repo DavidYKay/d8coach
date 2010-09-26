@@ -3,7 +3,7 @@
       package="com.d8coach.android.d8coach"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
+      <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true" android:theme="@style/MyTheme" >
         <activity android:name=".MainActivity"
                   android:label="@string/app_name">
             <intent-filter>
@@ -11,12 +11,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-		<activity android:launchMode="standard" android:name=".RegisterActivity"></activity>
-		<activity android:launchMode="standard" android:name=".LoginActivity"></activity>
-		<activity android:launchMode="singleTask" android:name=".ObjectivesActivity"></activity>
-		<activity android:launchMode="standard" android:name=".TargetListActivity"></activity>
-		<activity android:launchMode="standard" android:name=".TargetAddActivity"></activity>
-		<activity android:launchMode="standard" android:name=".TargetDetailActivity"></activity>
+		<activity android:launchMode="standard" android:theme="@style/MyTheme" android:name=".RegisterActivity"></activity>
+		<activity android:launchMode="standard" android:theme="@style/MyTheme" android:name=".LoginActivity"></activity>
+		<activity android:launchMode="singleTask" android:theme="@style/MyTheme" android:name=".ObjectivesActivity"></activity>
+		<activity android:launchMode="standard"  android:theme="@style/MyTheme" android:name=".TargetListActivity"></activity>
+		<activity android:launchMode="standard" android:theme="@style/MyTheme"  android:name=".TargetAddActivity"></activity>
+		<activity android:launchMode="standard" android:theme="@style/MyTheme"  android:name=".TargetDetailActivity"></activity>
 
     </application>
     <uses-sdk android:minSdkVersion="4" />

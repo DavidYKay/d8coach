@@ -5,7 +5,19 @@
 	<color name="red">#f00</color>
 	<color name="blue">#0f0</color>
 	<color name="green">#00f</color>
-	<color name="transparent">#00000000</color>
+    <color name="transparent">#00000000</color>
+
+    <style name="MyTheme" parent="android:Theme">
+	    <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+	  </style>
+	 
+	  <style name="MyDefaultTextAppearance" parent="@android:style/TextAppearance">
+          <item name="android:textSize">48sp</item>
+          <!--
+          <item name="android:textColor">#333</item>
+          -->
+        <item name="android:textStyle">bold</item>
+    </style>
 
 	<style name="DialogTheme" parent="android:Theme.Dialog">
 		<item name="android:textColor">@color/white</item>

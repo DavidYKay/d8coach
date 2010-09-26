@@ -46,5 +46,7 @@
     <!-- LOREM IPSUM -->
     <string name="jane_doe">Jane Doe</string>
     <string name="black">Black</string>
+    <string name="white">White</string>
     <string name="twenty_four">24</string>
+    <string name="slender">Slender</string>
 </resources>
