@@ -5,19 +5,46 @@
 
     <!-- Happy Text -->
     <string name="login_prompt">Please Login</string>
+    <string name="dismiss_objective">Dismiss Objective?</string>
+    <string name="really_dismiss_objective">Do you think this objective is a terrible idea?</string>
+    <string name="objective_complete">Objective Complete</string>
+    <string name="objective_complete_prompt">How was the target\'s reaction?</string>
+    <string name="dossier">Dossier</string>
+    <string name="no_objectives">No Objectives</string>
 
     <!-- BUTTONS -->
+    <string name="poorly">Poorly</string>
+    <string name="well">Well</string>
+    <string name="good">Good</string>
+    <string name="bad">Bad</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="objectives">Objectives</string>
     <string name="targets">Targets</string>
+    <string name="add_target">Add Target</string>
+    <string name="current_target">Current Target</string>
+
+    <string name="reject">Reject</string>
+    <string name="complete">Complete</string>
+    
+    <string name="delete_it">Delete It</string>
+    <string name="keep_it">Keep It</string>
 
     <!-- FIELD NAMES -->
     <string name="password">Password</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="build">Build</string>
+    <string name="ethnicity">Ethnicity</string>
+    <string name="hair">Hair Color</string>
 
+    <!-- LOREM IPSUM -->
+    <string name="jane_doe">Jane Doe</string>
+    <string name="black">Black</string>
+    <string name="twenty_four">24</string>
 </resources>

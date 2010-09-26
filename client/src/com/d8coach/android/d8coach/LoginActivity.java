@@ -1,8 +1,10 @@
 package com.d8coach.android.d8coach;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,8 @@ public class LoginActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+		setTitle("D8Coach: Login");
 
         mEmailText    = (EditText)this.findViewById(R.id.LoginActivity_email);
         mPasswordText = (EditText)this.findViewById(R.id.LoginActivity_password);
@@ -53,6 +57,32 @@ public class LoginActivity extends Activity {
         Log.v("Login", logString);
 
         //reach out to web service
+
+        //show indicator for a bit?
+        final ProgressDialog dialog = ProgressDialog.show(
+            this,
+            "Logging in",
+            "Please wait...",
+            true,
+            true
+        );
+            
+        new CountDownTimer(2000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+            public void onFinish() {
+                //mTextField.setText("done!");
+                completeLogin(dialog);
+            }
+        }.start();
+        
+    }
+    
+    private void completeLogin(ProgressDialog dialog) {
+        dialog.dismiss();
+        //dismiss activity
+        finish();
     }
 
     /**
