@@ -11,6 +11,11 @@ public class Constants {
 	 * 
 	 */
 	public static final String SELECT_MODE = "select_mode";
+	public static final String ObjectivePreferences = "objective_preferences";
+	
+	/** 
+	 * 
+	 */
 	
 	public static final String TargetName = "target_name";
 }

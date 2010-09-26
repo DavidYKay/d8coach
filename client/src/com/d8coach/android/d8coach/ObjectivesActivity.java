@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.d8coach.android.d8coach.model.Objective;
+import com.d8coach.android.d8coach.model.Target;
 import com.d8coach.android.d8coach.util.Constants;
 import com.d8coach.android.d8coach.util.Functions;
 import com.d8coach.android.d8coach.view.TargetFooter;
@@ -28,6 +30,8 @@ public class ObjectivesActivity extends ListActivity {
 
 	public static final int NUM_OBJECTIVES = 6;
 
+	private Target mTarget;
+
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
@@ -35,6 +39,11 @@ public class ObjectivesActivity extends ListActivity {
 		setContentView(R.layout.objectives);
 
 		setTitle("D8Coach: Objectives");
+
+		SharedPreferences settings = this.getSharedPreferences(
+				Constants.ObjectivePreferences, 0);
+		String name  = settings.getString(Target.NAME, "Jane Doe");
+		mTarget = new Target(name);
 
 		final TargetFooter targetFooter = (TargetFooter) this.findViewById(R.id.target_footer);
 		
@@ -75,6 +84,9 @@ public class ObjectivesActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onStart();
 		initObjectives();
+		
+
+		//int fontSize = settings.getInt(SettingsScreen.FONT_SIZE, 1);
 	}
 	
 	@Override
