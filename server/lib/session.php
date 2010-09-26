@@ -4,15 +4,15 @@ function is_session_valid() {
 $sesshash = mysql_real_escape_string($_COOKIE['sesshash']) ;
 $uid = mysql_real_escape_string($_COOKIE['uid']) ; 
 $query = "SELECT * FROM `sessions` WHERE sesshash LIKE '" . $sesshash . "';" ;
-echo $query;
+//echo $query;
 $res = mysql_query($query);
 $array = mysql_fetch_assoc($res);
 if ($array['uid'] != $uid) {
-echo "Bad UID!";
+//echo "Bad UID!";
 return false;
 }
 if ($array['date'] >= time()) {
-echo "BAD DATE!";
+//echo "BAD DATE!";
 return false;
 }
 
@@ -24,8 +24,6 @@ $date = date('U', time() + 604800) ;
 $sesshash = md5($uid . $date ) ;
 $query = "INSERT INTO sessions (uid, sesshash, expires) VALUES (" . $uid . ", '" . $sesshash . "' , " . $date . ") ;" ;
 $res = mysql_query($query) ;
-setcookie('uid', $uid) ;
-setcookie('sesshash', $sesshash);
 return $sesshash ;
 }
 
