@@ -78,7 +78,7 @@ public class ObjectivesActivity extends ListActivity {
 	 * method to mark objective as unsuitable
 	 */
 	private void completeObjective(Objective objective) {
-		Log.v("dismissObjective", objective.toString());
+		Log.v("completeObjective", objective.toString());
 		//launch confirmation dialog
 
 	}
@@ -148,13 +148,17 @@ public class ObjectivesActivity extends ListActivity {
 			
 			final int fixedPos = position;
 			wrapper.getCompleteButton().setOnClickListener( new OnClickListener() {
-
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+					Objective objective = getModel(fixedPos);
+					completeObjective(objective);
+				}
+			});
+			
+			wrapper.getVetoButton().setOnClickListener( new OnClickListener() {
+				public void onClick(View v) {
 					Objective objective = getModel(fixedPos);
 					dismissObjective(objective);
 				}
-				
 			});
 			
 			//rate.setTag(new Integer(position));
