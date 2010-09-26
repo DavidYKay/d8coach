@@ -3,6 +3,7 @@ package com.d8coach.android.d8coach;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,20 +14,17 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class ObjectivesActivity extends ListActivity {
-	String[] items={"lorem", "ipsum", "dolor", "sit", "amet",
-			"consectetuer", "adipiscing", "elit", "morbi", "vel",
-			"ligula", "vitae", "arcu", "aliquet", "mollis",
-			"etiam", "vel", "erat", "placerat", "ante",
-			"porttitor", "sodales", "pellentesque", "augue",
-	"purus"};
 
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+		
+		Resources res = getResources();
+		String[] lines = res.getStringArray(R.array.pickup_lines);
 
 		ArrayList<RowModel> list = new ArrayList<RowModel>();
 
-		for (String s : items) {
+		for (String s : lines) {
 			list.add(new RowModel(s));
 		}
 

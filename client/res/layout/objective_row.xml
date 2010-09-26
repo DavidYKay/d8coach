@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_height="80dp"
 	android:orientation="horizontal"
 	android:baselineAligned="true"
 	>
@@ -22,7 +22,7 @@
 		android:textSize="40sp"
 		android:layout_width="0px"
 		android:layout_weight="80"
-		android:layout_height="wrap_content"/>
+		android:layout_height="fill_parent"/>
 	<Button
 		android:id="@+id/completeButton"
 		android:paddingLeft="2px"
@@ -31,7 +31,7 @@
 		android:textSize="20sp"
 		android:layout_width="0px"
 		android:layout_weight="10"
-		android:layout_height="wrap_content"/>
+		android:layout_height="fill_parent"/>
 	<Button
 		android:id="@+id/vetoButton"
 		android:paddingLeft="2px"
@@ -40,5 +40,5 @@
 		android:textSize="20sp"
 		android:layout_width="0px"
 		android:layout_weight="10"
-		android:layout_height="wrap_content"/>
+		android:layout_height="fill_parent"/>
 </LinearLayout>

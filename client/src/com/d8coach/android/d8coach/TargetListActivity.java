@@ -28,7 +28,6 @@ public class TargetListActivity extends ListActivity {
 
 		for (String s : names) {
 			list.add(new Target(s));
-			//list.add(s);
 		}
 
 		setListAdapter(new TargetAdapter(list));
@@ -59,7 +58,6 @@ public class TargetListActivity extends ListActivity {
 				wrapper = (ViewWrapper)row.getTag();
 			}
 
-			//RowModel model = getModel(position);
 			Target model = getModel(position);
 
 			String string = model.toString();
@@ -75,7 +73,7 @@ public class TargetListActivity extends ListActivity {
 	}
 
 	/**
-	 * Wraps a given objective row.
+	 * Wraps a given target row.
 	 * Primarily here as an optimization.
 	 * @author dk
 	 *
