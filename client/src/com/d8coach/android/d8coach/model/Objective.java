@@ -30,5 +30,9 @@ public class Objective {
 	public String toString() {
 		return title;
 	}
+	public static String createTableStmt() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `targets` (
+  `tid` int(11) NOT NULL PRIMARY KEY,
+  `hair` enum('brown','blonde','red','black','dyed') NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `age` int(11) NOT NULL,
+  `build` int(11) NOT NULL,
+  `ethnicity` enum('white','black','latino','asian') NOT NULL
+);

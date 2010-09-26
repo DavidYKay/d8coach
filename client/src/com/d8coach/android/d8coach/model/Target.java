@@ -1,6 +1,18 @@
 package com.d8coach.android.d8coach.model;
 
+import android.content.res.Resources;
+
+import com.d8coach.android.d8coach.R;
+import com.d8coach.android.d8coach.util.RawReader;
+
 public class Target {
+
+	public static final String KEY = "tid";
+	public static final String HAIR = "hair";
+	public static final String NAME = "name";
+	public static final String AGE = "age";
+	public static final String BUILD = "build";
+	public static final String ETHNICITY = "ethnicity:";
 
 	private String name = "Jane Doe";
 	private Gender gender = Gender.UNKNOWN;
@@ -43,6 +55,14 @@ public class Target {
 	public String toString() {
 		//return "Fwhwgds";
 		return name;
+	}
+
+	public static String createTableStmt(Resources resourceManager) {
+		// TODO Auto-generated method stub
+		return RawReader.readString(
+			resourceManager,
+			R.raw.create_targets
+		);
 	}
 
 }

@@ -22,7 +22,8 @@ public class D8CoachProvider extends ContentProvider {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			// TODO Auto-generated method stub
-			
+			//db.execSQL(Target.createTableStmt(getContext().getResources()));
+			//db.execSQL(Objective.createTableStmt());
 		}
 
 		@Override
