@@ -3,6 +3,7 @@ package com.d8coach.android.d8coach;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,7 +58,10 @@ public class TargetListActivity extends ListActivity {
 		int itemId = item.getItemId();
 		Log.v("onOptionsItemSelected", Integer.toString(itemId));
 		switch (itemId) {
-			case 0:
+			case R.id.add_target:
+				//Fire up the "add target" activity
+        		Intent myIntent = new Intent(TargetListActivity.this, TargetAddActivity.class);
+        		TargetListActivity.this.startActivity(myIntent);
 				return true;
 			case 1:
 				//((IciView) mTabHost.getCurrentView()).onOptionsItemSelected(item);
