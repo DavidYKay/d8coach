@@ -17,7 +17,7 @@
 		android:layout_height="fill_parent"
 		android:text="No data"/>
 
-	<com.d8coach.android.d8coach.TargetFooter android:id="@+id/target_footer"
+	<com.d8coach.android.d8coach.view.TargetFooter android:id="@+id/target_footer"
 		android:layout_width="fill_parent" 
 		android:layout_height="0px"
 		android:layout_weight="15"

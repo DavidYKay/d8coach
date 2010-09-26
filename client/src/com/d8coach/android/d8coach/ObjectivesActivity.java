@@ -10,8 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -73,6 +73,25 @@ public class ObjectivesActivity extends ListActivity {
 
 		setListAdapter(new ObjectiveAdapter(list));
 	}
+	
+	/**
+	 * method to mark objective as unsuitable
+	 */
+	private void completeObjective(Objective objective) {
+		Log.v("dismissObjective", objective.toString());
+		//launch confirmation dialog
+
+	}
+
+	/**
+	 * method to mark objective as unsuitable
+	 */
+	//private void dismissObjective(int position) {
+	private void dismissObjective(Objective objective) {
+		//objective = getmodel(position);
+		//launch confirmation dialog
+		Log.v("dismissObjective", objective.toString());
+	}
 
 	/**
 	 * Mainly to handle responses from TargetListActivity
@@ -126,6 +145,18 @@ public class ObjectivesActivity extends ListActivity {
 			Objective model = getModel(position);
 
 			wrapper.getLabel().setText(model.toString());
+			
+			final int fixedPos = position;
+			wrapper.getCompleteButton().setOnClickListener( new OnClickListener() {
+
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Objective objective = getModel(fixedPos);
+					dismissObjective(objective);
+				}
+				
+			});
+			
 			//rate.setTag(new Integer(position));
 			//rate.setRating(model.rating);
 
@@ -142,27 +173,27 @@ public class ObjectivesActivity extends ListActivity {
 	class ViewWrapper {
 		View base;
 		TextView label = null;
-		Button completeButton = null;
-		Button vetoButton = null;
+		ImageButton completeImageButton = null;
+		ImageButton vetoImageButton = null;
 
 		ViewWrapper(View base) {
 			this.base = base;
 		}
 
-		Button getCompleteButton() {
-			if (completeButton == null) {
-				completeButton = (Button)base.findViewById(R.id.completeButton);
+		ImageButton getCompleteButton() {
+			if (completeImageButton == null) {
+				completeImageButton = (ImageButton)base.findViewById(R.id.completeButton);
 			}
 
-			return(completeButton);
+			return(completeImageButton);
 		}
 		
-		Button getVetoButton() {
-			if (vetoButton == null) {
-				vetoButton = (Button)base.findViewById(R.id.vetoButton);
+		ImageButton getVetoButton() {
+			if (vetoImageButton == null) {
+				vetoImageButton = (ImageButton)base.findViewById(R.id.vetoButton);
 			}
 
-			return(vetoButton);
+			return(vetoImageButton);
 		}
 
 		TextView getLabel() {
