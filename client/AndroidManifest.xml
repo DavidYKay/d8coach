@@ -11,11 +11,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-		<activity android:launchMode="singleTask" android:name=".RegisterActivity"></activity>
-		<activity android:launchMode="singleTask" android:name=".LoginActivity"></activity>
+		<activity android:launchMode="standard" android:name=".RegisterActivity"></activity>
+		<activity android:launchMode="standard" android:name=".LoginActivity"></activity>
 		<activity android:launchMode="singleTask" android:name=".ObjectivesActivity"></activity>
-		<activity android:launchMode="singleTask" android:name=".TargetListActivity"></activity>
-		<activity android:launchMode="singleTask" android:name=".TargetAddActivity"></activity>
+		<activity android:launchMode="standard" android:name=".TargetListActivity"></activity>
+		<activity android:launchMode="standard" android:name=".TargetAddActivity"></activity>
 
     </application>
     <uses-sdk android:minSdkVersion="4" />

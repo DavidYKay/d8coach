@@ -42,6 +42,21 @@ public class TargetListActivity extends ListActivity {
 
 		setListAdapter(new TargetAdapter(list));
 	}
+	
+	/**
+	 * Mainly to handle responses from TargetAddActivity
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == Constants.ADD_TARGET_CODE) {
+			Log.v("onActivityResult", "IT WORKED");
+		} else {
+			Log.v("onActivityResult", "Result code: " + resultCode);
+			Log.v("onActivityResult", "Request code: " + requestCode);
+		}
+	}
 
 	/*******************************
 	 * Menu Methods
@@ -67,7 +82,8 @@ public class TargetListActivity extends ListActivity {
 			case R.id.add_target:
 				//Fire up the "add target" activity
         		Intent myIntent = new Intent(TargetListActivity.this, TargetAddActivity.class);
-        		TargetListActivity.this.startActivity(myIntent);
+        		//TargetListActivity.this.startActivity(myIntent);
+        		TargetListActivity.this.startActivityForResult(myIntent, Constants.ADD_TARGET_CODE);
 				return true;
 			case 1:
 				//((IciView) mTabHost.getCurrentView()).onOptionsItemSelected(item);
