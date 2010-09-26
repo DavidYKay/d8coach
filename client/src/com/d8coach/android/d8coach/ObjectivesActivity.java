@@ -24,6 +24,8 @@ public class ObjectivesActivity extends ListActivity {
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
+		setContentView(R.layout.objectives);
+
 		setTitle("D8Coach: Objectives");
 		
 		Resources res = getResources();
