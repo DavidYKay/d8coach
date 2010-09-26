@@ -67,7 +67,9 @@ public class LoginActivity extends Activity {
             true
         );
             
-        new CountDownTimer(2000, 1000) {
+		final long delay = 2000;
+		long timerSec = (long)(delay * Math.random());
+        new CountDownTimer(timerSec, timerSec) {
             public void onTick(long millisUntilFinished) {
                 //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
             }

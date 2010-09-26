@@ -1,7 +1,6 @@
 package com.d8coach.android.d8coach;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import android.app.Activity;
 import android.app.ListActivity;
