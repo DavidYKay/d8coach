@@ -23,6 +23,8 @@ public class ObjectivesActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+
+		setTitle("D8Coach: Objectives");
 		
 		Resources res = getResources();
 		String[] lines = res.getStringArray(R.array.pickup_lines);

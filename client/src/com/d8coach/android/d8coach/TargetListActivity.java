@@ -27,6 +27,8 @@ public class TargetListActivity extends ListActivity {
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
+		setTitle("D8Coach: Targets");
+
 		Resources res = getResources();
 		String[] names = res.getStringArray(R.array.female_names);
 
